@@ -6,9 +6,9 @@
 4. Run py_env\Scripts\activate to activate the virtual env
 5. Run pip install -r requirements.txt to install dependencies
 6. Run cd pricing_module_l2
-7. Run Run python manage.py createsuperuser (provide username, emial and password; use the same credentials to login to Django Admin Panel later)
-8. Run python manage.py makemigrations
-9. Run python manage.py migrate
+7. Run python manage.py makemigrations
+8. Run python manage.py migrate
+9. Run python manage.py createsuperuser (provide username, emial and password; use the same credentials to login to Django Admin Panel later)
 10. Run python manage.py runserver (start Django web server default at (http://127.0.0.1:8000/) - to view the actual ui navigate to http://127.0.0.1:8000/app/home/)
 
 # Notes -:
