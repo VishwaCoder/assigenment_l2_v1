@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'prc_mdl_app/css/bootstrap.css' %}">
+    <title>Price Calculator</title>
+</head>
+<body>
+<nav class="navbar  navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'rederHome' %}" style="color: #e3f2fd;">Manage Config</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" style="color: #e3f2fd;"
+                       href="{% url 'renderPriceCalculator' %}">Price Calculator</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-3">
+            <form>
+                <div class="mb-3">
+                    <label for="distance_traveled" class="form-label">Distance Traveled</label>
+                    <input type="number" class="form-control" id="distance_traveled">
+                </div>
+                <div class="mb-3">
+                    <label for="time_duration" class="form-label">Time Duration</label>
+                    <input type="number" class="form-control" id="time_duration">
+                </div>
+                <button type="button" id="apiButton" class="btn btn-info">Calculate</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'prc_mdl_app/js/bootstrap.js' %}"></script>
+<script>
+    document.getElementById('apiButton').addEventListener('click', function() {
+        let distance_traveled_input = document.getElementById('distance_traveled');
+        let distance_traveled = distance_traveled_input.value;
+        let time_duration_input = document.getElementById('time_duration');
+        let time_duration = time_duration_input.value;
+        fetch('http://127.0.0.1:8000/app/v1/', {
+                 method: 'POST',
+                 headers: {
+                   'Content-Type': 'application/json', // Or other content type
+                 },
+                 body: JSON.stringify({
+                   distance_traveled: distance_traveled,
+                   time_duration: time_duration
+                 }),
+               })
+              .then(response => response.json())
+              .then(data => {
+                  alert("Total price is " + data.total_price + "₹")
+              })
+              .catch(error => alert('Error:' + error.message));
+              distance_traveled_input.value = '';
+              time_duration_input.value = '';
+  });
+</script>
+</body>
+</html>
