@@ -21,8 +21,14 @@
     </div>
 </nav>
 
+<div class="container-fluid text-center ">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+</div>
 
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-md-center">
         <div class="col-3">
             <form>
@@ -61,7 +67,7 @@
               .then(response => response.json())
               .then(data => {
               if (data.total_price != undefined) {
-                  alert("Total price is " + data.total_price + "₹")
+                  alert("Total price is " + data.total_price + " ₹")
                   }
               else{
                     alert("Error:" + data.message)
