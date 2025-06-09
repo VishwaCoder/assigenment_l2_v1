@@ -12,7 +12,6 @@ env/
 build/
 develop-eggs/
 dist/
-migrations
 downloads/
 eggs/
 lib/
