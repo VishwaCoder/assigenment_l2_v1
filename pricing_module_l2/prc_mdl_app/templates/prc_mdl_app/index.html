@@ -44,13 +44,13 @@
         <form action="{% url 'updatePriceConfig' %}" method="POST">
             {% csrf_token %}
             <tr>
-                <td><input type="text" class="form-control" name="distance_base_price"
+                <td><input type="number" class="form-control" name="distance_base_price"
                            value={{item.distance_base_price}}></td>
-                <td><input type="text" class="form-control" name="distance_additional_price"
+                <td><input type="number" class="form-control" name="distance_additional_price"
                            value={{item.distance_additional_price}}></td>
-                <td><input type="text" class="form-control" name="time_multiplier_factor"
+                <td><input type="number" class="form-control" name="time_multiplier_factor"
                            value={{item.time_multiplier_factor}}></td>
-                <td><input type="text" class="form-control" name="waiting_charge"
+                <td><input type="number" class="form-control" name="waiting_charge"
                            value={{item.waiting_charge}}></td>
                 <td>{{item.is_enabled}}</td>
                 <td>{{item.created_at}}</td>

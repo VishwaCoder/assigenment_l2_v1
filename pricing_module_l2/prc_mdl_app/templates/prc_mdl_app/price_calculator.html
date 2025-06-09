@@ -60,9 +60,16 @@
                })
               .then(response => response.json())
               .then(data => {
+              if (data.total_price != undefined) {
                   alert("Total price is " + data.total_price + "₹")
+                  }
+              else{
+                    alert("Error:" + data.message)
+                }
               })
-              .catch(error => alert('Error:' + error.message));
+              .catch(error => {
+                  alert('Error:' + error.message)
+              });
               distance_traveled_input.value = '';
               time_duration_input.value = '';
   });

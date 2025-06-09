@@ -101,7 +101,8 @@ def calculatePrice(req):
             body = json.loads(req.body.decode("utf-8"))
             distance_traveled = float(body.get("distance_traveled"))
             time_duration = float(body.get("time_duration"))
-            active_config = Price.object.get(is_enabled=True)
+            active_config = Price.objects.get(is_enabled=True)
+
             if active_config:
                 price = (int(active_config.distance_base_price) + (
                         distance_traveled * int(active_config.distance_additional_price))) + (
